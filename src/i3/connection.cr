@@ -21,7 +21,7 @@ module I3
     #
     # Raises an `Error` if the connection can't be created.
     def initialize
-      @socket_path = `i3 --get-socketpath`.chomp
+      @socket_path = `sway --get-socketpath`.chomp
       raise Error.new("Could not get socket path") unless $?.success?
 
       @socket = UNIXSocket.new(@socket_path)
